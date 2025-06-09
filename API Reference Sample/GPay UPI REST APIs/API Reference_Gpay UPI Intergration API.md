@@ -1,7 +1,7 @@
 # GPay UPI Integraition API Reference
 ------
 
-Unified Payment Interface (UPI) enables a user to transfer money directly from bank accounts using a smartphone. UPI can be used through GPay among other payment apps. The GPay UPI Integration APIs can be used to manage the user and payment objects.
+Unified Payment Interface (UPI) enables a user to transfer money directly from bank accounts using a smartphone. UPI is used through GPay through individual user account. The GPay UPI Integration APIs are used to manage the user and payment objects.
 
 
 The following APIs are described in this API reference:  
@@ -18,7 +18,7 @@ The following APIs are described in this API reference:
 ## 1. User API
 ---
 
-User API enables you to manage user information. The methods can be used to create, update, and delete user objects and retrieve user data in mass or filtered by user ID. The endpoint of User API are described in section.
+User API enables you to manage user information. The methods are used to create, update, and delete user objects and retrieve user data in mass or filtered by user ID. The endpoint of User API are described in section.
 
 
 ### List users 
@@ -224,12 +224,12 @@ Sample response body after an unsuccessful execution.
 
 Payment APIs enables you to initiate and manage payments made through the UPI. The payments are initiated on the UPI apps by a user to be made to a Virtual Payment Address.
 
-The methods can be used to initiate a payment, list the payments made, update payment statuses, and cancel any pending payments.
+This method is used to initiate a payment from a user to a Virtual Payment Address(VPA).
 
 ### Initiate a payment  
 ------
 
-Initiates a UPI payment of a given amount from a user to virtual payment address of another user as defined in the request body. A note containing purpose of the transaction can also be attached with the payment. The endpoint attaches a system generated unique ID to the transaction.
+Initiates a UPI payment of a given amount from a user to virtual payment address of another user as defined in the request body. Optionally, a note containing purpose of the transaction is attached with the payment. The endpoint attaches a system generated unique ID to the transaction.
 
 Method: `POST`  
 Endpoint: `/payments`

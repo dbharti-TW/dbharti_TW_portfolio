@@ -6,10 +6,10 @@ Hello and welcome to my WIP Technical Writing Portfolio! My name is Drashti, and
 
 ## Overview
 
-This repository hosts my technical writing samples and begins my documentation collection. As of now, documents range from how-to guides to API references, showcasing my skills in software and API documentation.
+This repository hosts my technical writing samples and marks the begining my documentation porfolio. As of now, samples include a how-to guide and and API reference, showcasing my skills in software and API documentation.
 
 
 ## Contents of Portfolio
--   **How-to Guide Sample**: Step-by-step how-to guide for end-users to complete specific tasks.
--   **Resume**: Most recently updated resume.
+-   **How-to Guide Sample**:A guide covering step-by-step instructions for end-users to complete specific tasks.
 -   **API Reference Sample**: A sample of REST API documentation in markdown and YAML.
+-   **Resume**: Most recently updated resume.

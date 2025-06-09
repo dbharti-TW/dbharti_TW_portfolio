@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: GPay UPI Integration API
   description: >
-    API to manage users, payments, transactions, and bank accounts via UPI in GPay.
+    API to manage users, payments, and transactions via UPI in GPay. (This is a fictional API for the pupose of technical writing sample.)
   version: 1.0.0
 
 servers:
@@ -47,15 +47,19 @@ components:
       properties:
         userId:
           type: string
+          description: System generated unique identifier for the user
           example: user_12345
         name:
           type: string
+          description: First and last name of the user
           example: Leona Moretti
         mobile:
           type: string
+          description: 10 digit mobile with country code
           example: '+919876543210'
         email:
           type: string
+          description: Valid email address of the user
           format: email
           example: leona@example.com
 
@@ -69,6 +73,7 @@ components:
       properties:
         fromUserId:
           type: string
+          description: ID of user sending the payment
           example: user_12345
         toVPA:
           type: string
@@ -76,13 +81,16 @@ components:
           example: dario@upi
         amount:
           type: number
+          description: Amount of money the user is sending to the receiver defined in <i>toVPA</i>
           format: float
           example: 1500.50
         transactionId:
           type: string
+          description: System generated unique identifier for tanscation
           example: txn_987654321
         note:
           type: string
+          description: Note to add more context to the purpose of transaction
           example: Dinner payment
 
     PaymentResponse:
@@ -157,7 +165,9 @@ paths:
       tags:
         - User
       summary: Lists users
-      description: Retrieves the details of users. Control the number of results displayed and offset using the parameters.
+      description: > 
+        Retrieves details of all users.
+        Control the number of results displayed and offset using the parameters.
       parameters:
         - name: limit
           in: query
@@ -187,9 +197,17 @@ paths:
       tags:
         - User
       summary: Creates a new user
-      description: Creates a new user object using the details provided in the request body.
+      description: >
+        Creates a new user object with the details provided in the request body.
       requestBody:
-        description: "Provide the following user details to create new user object: <ui> <li>userId: System generated unique identifier for user </li> <li> name: First and last names of user </li> <li> mobile: 10 digit unique phone with area code </li> <li> email: Email address of user.</li></ui>"
+        description: > 
+          Provide the following user details to create new user object: 
+            <ui>
+              <li> userId: System generated unique identifier for user </li>
+              <li> name: First and last names of user </li>
+              <li> mobile: 10 digit unique phone with area code </li>
+              <li> email: Email address of user. </li>
+            </ui>
         required: true
         content:
           application/json:
@@ -210,7 +228,8 @@ paths:
       tags:
         - User
       summary: Retrieves user by ID
-      description: "Retrieves details of the user associated with the ID provided in the parameter."
+      description: >
+        Retrieves user details associated with the ID provided in the parameter.
       parameters:
         - name: userId
           in: path
@@ -232,7 +251,9 @@ paths:
       tags:
         - User
       summary: Updates user details
-      description: Updates details of user associated with the ID provided in the parameter. Provide details to be updated in the request body.
+      description: >
+        Updates details of user associated with the ID provided in the parameter.
+        Provide updated details in the request body.
       parameters:
         - name: userId
           description: ID associated with user
@@ -241,7 +262,13 @@ paths:
           schema:
             type: string
       requestBody:
-        description: "Provide user details to updated. Following details can be updated: <ui> <li>name: First and last names of user </li> <li> mobile: 10 digit unique phone with area code </li> <li> email: Email address of user.</li></ui>"
+        description: >
+          Provide user details to be updated. The following details are eligible for update:
+            <ui>
+              <li>name: First and last names of user </li>
+              <li>mobile: 10 digit unique phone with area code </li>
+              <li>email: Email address of user.</li>
+            </ui>
         required: true
         content:
           application/json:
@@ -261,7 +288,8 @@ paths:
       tags:
         - User
       summary: Deletes user by ID
-      description: Deletes the user object associated with ID provided in the parameter.
+      description: >
+        Deletes the user object associated with ID provided in the parameter.
       parameters:
         - name: userId
           description: ID associated with user object to be deleted
@@ -279,10 +307,21 @@ paths:
     post:
       tags:
         - Payment
-      summary: Initiate a payment
-      description: Initiates a UPI payment of a given amount from a user to virtual payment address as defined in the request body. A note containing purpose of the transaction can also be attached with the payment. The API attaches a system generated unique ID to the transaction.
+      summary: Initiates a payment
+      description: |
+        Initiates a UPI payment of a given amount from a user to virtual payment address as defined in the request body. Optionally, a note containing purpose of the transaction is attached with the payment.
+        
+        The API attaches a system generated unique identifier to the transaction.
       requestBody:
-        description: "Provide the following details to initiate a payment: <ui><li>fromUserId: ID of the user initiating the payment </li> <li> toVPA: Virtual Payment Address to send the payment to </li> <li> amount: Amount to be paid to the Virtual Payment Address defined in <i>toVPA</i> </li><li>transactionId: System generated unique identifier for the transaction </li><li>note: User added note about purpose of transaction</li></ui>"
+        description: >
+          Provide the following details to initiate a payment:
+            <ui>
+              <li> fromUserId: ID of the user initiating the payment </li>
+              <li> toVPA: Virtual Payment Address to send the payment to </li>
+              <li> amount: Amount to be paid to the Virtual Payment Address defined in <i>toVPA</i> </li>
+              <li> transactionId: System generated unique identifier for the transaction </li>
+              <li> note: User added note about purpose of transaction</li>
+            </ui>
         required: true
         content:
           application/json:
