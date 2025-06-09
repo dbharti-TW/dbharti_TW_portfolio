@@ -14,6 +14,8 @@ The following APIs are described in this API reference:
 - [Payment API](#2-payment-api)
     - [Initiate a payment](#initiate-a-payment)
 
+The [Response Error Codes](#response-error-codes) section describes the error returned by endpoints when an execution fails.
+
 
 ## 1. User API
 ---
@@ -34,10 +36,10 @@ Endpoint: `/users`
 
 The request parameters of the endpoint are described below:
 
-| Parameters | Description | 
-|----------------|----------------|
-| **limit**  | Enter the number of users to be retrieved. By default, the endpoint returns details of 20 users |
-| **offset** | Enter the number of pages to skip before retrieving the user details. The records prior to this page number are not retrieved. By default, the endpoint retrieves records from 1st page |
+| Parameters | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **limit**  | Integer | No | Enter the number of users to be retrieved. By default, the endpoint returns details of 20 users. |
+| **offset** | Integer | No | Enter the number of pages to skip before retrieving the user details. The records prior to this page number are not retrieved. By default, the endpoint retrieves records from 1st page. |
 
 #### Response
 ---
@@ -73,11 +75,11 @@ Endpoint: `/users`
 
 Provide the following user details through request body to create new user object.
 
-| Fields | Description | 
-|----------------|----------------|
-| **name** | First and last names of user|
-| **mobile** | 10 digit unique phone with area code|
-| **email** | Email address of user|
+| Fields | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **name** | String | Yes | First and last names of user.|
+| **mobile** | String | Yes | 10 digit unique phone with area code.|
+| **email** | String (email format)| No | Email address of user.|
 
 Sample request body.
 
@@ -118,9 +120,9 @@ Endpoint: `/users/{userId}`
 
 The request parameter of the endpoint is described below:
 
-| Parameter | Description | 
-|----------------|----------------|
-| **userId**  | Enter the ID associated with the user|
+| Parameter | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **userId**  | String | Yes | Enter the ID associated with the user.|
 
 #### Response
 ---
@@ -151,18 +153,18 @@ Endpoint: `/users/{userId}`
 ---
 The request parameter of the endpoint is described below:
 
-| Parameter | Description | 
-|----------------|----------------|
-| **userId**  | Enter the ID associated with the user|
+| Parameter | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **userId**  | String | Yes | Enter the ID associated with the user.|
 
 
-Provide updated user details through request body. The following fields can be updated:
+Provide updated user details through request body. The following fields are eligible for updates:
 
-| Fields | Description | 
-|----------------|----------------|
-| **name** | First and last names of user|
-| **mobile** | 10 digit unique phone with area code|
-| **email** | Email address of user|
+| Fields | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **name** | String | Yes | First and last names of user.|
+| **mobile** | String | Yes | 10 digit unique phone with area code.|
+| **email** | String (email format)| No | Email address of user.|
 
 Sample request body.
 
@@ -202,9 +204,9 @@ Endpoint: `/users/{userId}`
 
 The request parameter of the endpoint is described below:
 
-| Parameter | Description | 
-|----------------|----------------|
-|**userId**  | Enter the ID associated with user object to be deleted|
+| Parameter | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+|**userId**  | String | Yes | Enter the ID associated with user object to be deleted.|
 
 #### Response
 ---
@@ -239,13 +241,13 @@ Endpoint: `/payments`
 
 Provide the following details through request body to initiate a payment.
 
-| Fields | Description | 
-|----------------|----------------|
-| **fromUserId**| ID of the user initiating the payment|
-| **toVPA** | Virtual Payment Address of the payment reciever|
-| **amount** | Amount to be paid to the Virtual Payment Address defined in toVPA|
-| **transactionId**| System generated unique identifier for the transaction|
-|**note**|User added note about purpose of transaction|
+| Fields | Data Type | Required | Description | 
+|----------------|----------------|----------------|----------------|
+| **fromUserId**| String | Yes | ID of the user initiating the payment.|
+| **toVPA** | String | Yes | Virtual Payment Address of the payment reciever.|
+| **amount** | Number (float format) | Yes | Amount to be paid to the Virtual Payment Address defined in _toVPA_.|
+| **transactionId**| String | Yes | System generated unique identifier for the transaction.|
+|**note**| String | No | User added note about purpose of transaction.|
 
 Sample request body.
 
@@ -277,5 +279,5 @@ The following table describes the response codes returned after execution of the
 
 | Code series| Description | 
 |----------------|----------------|
-| 200s  | The endpoint return code in series of 200 upon successful execution. For example, when an object is successfully created, updated, or deleted |
-| 400s |The endpoint return code in series of 400 upon failure of execution. For example, the execution fails due to authorization issues or incorrect values in parameters|
+| 200s  | The endpoint return code in series of 200 upon successful execution. For example, when an object is successfully created, updated, or deleted. |
+| 400s |The endpoint return code in series of 400 upon failure of execution. For example, the execution fails due to authorization issues or incorrect values in parameters.|
