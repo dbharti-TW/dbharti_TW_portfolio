@@ -1,7 +1,7 @@
-# GPay UPI Integraition API Reference
+# GPay UPI Integration API Reference
 ------
 
-Unified Payment Interface (UPI) enables a user to transfer money directly from bank accounts using a smartphone. UPI is used through GPay through individual user account. The GPay UPI Integration APIs are used to manage the user and payment objects.
+Unified Payment Interface (UPI) enables a user to transfer money directly from bank accounts using a smartphone. UPI is used through GPay through an individual user account. The GPay UPI Integration APIs are used to manage the user and payment objects.
 
 
 The following APIs are described in this API reference:  
@@ -14,13 +14,13 @@ The following APIs are described in this API reference:
 - [Payment API](#2-payment-api)
     - [Initiate a payment](#initiate-a-payment)
 
-The [Response Error Codes](#response-error-codes) section describes the error returned by endpoints when an execution fails.
+The [Response Error Codes](#response-error-codes) section describes the error returned by the endpoints when an execution fails.
 
 
 ## 1. User API
 ---
 
-User API enables you to manage user information. The methods are used to create, update, and delete user objects and retrieve user data in mass or filtered by user ID. The endpoint of User API are described in section.
+User API enables you to manage user information. The methods are used to create, update, and delete user objects and retrieve user data in bulk or filtered by user ID. The endpoints of the User API are described in this section.
 
 
 ### List users 
@@ -39,7 +39,7 @@ The request parameters of the endpoint are described below:
 | Parameters | Data Type | Required | Description | 
 |----------------|----------------|----------------|----------------|
 | **limit**  | Integer | No | Enter the number of users to be retrieved. By default, the endpoint returns details of 20 users. |
-| **offset** | Integer | No | Enter the number of pages to skip before retrieving the user details. The records prior to this page number are not retrieved. By default, the endpoint retrieves records from 1st page. |
+| **offset** | Integer | No | Enter the number of pages to skip before retrieving the user details. The records before this page number are not retrieved. By default, the endpoint retrieves records from 1st page. |
 
 #### Response
 ---
@@ -73,7 +73,7 @@ Endpoint: `/users`
 #### Request
 ---
 
-Provide the following user details through request body to create new user object.
+Provide the following user details through the request body to create a new user object.
 
 | Fields | Data Type | Required | Description | 
 |----------------|----------------|----------------|----------------|
@@ -110,7 +110,7 @@ Sample response body after a successful execution.
 ### Retrieve user by ID
 ---
 
-Retrieves details of a specific user. The endpoint returns details of user associated with the ID provided in the parameter.
+Retrieves details of a specific user. The endpoint returns details of the user associated with the ID provided in the parameter.
 
 Method: `GET`  
 Endpoint: `/users/{userId}`
@@ -144,7 +144,7 @@ Sample response body after a successful execution.
 ### Update user details
 ---
 
-Updates details of user associated with the ID provided in the parameter. Provide details to be updated in the request body.
+Updates the details of the user associated with the ID provided in the parameter. Provide details to be updated in the request body.
 
 Method: `PUT`  
 Endpoint: `/users/{userId}`
@@ -158,7 +158,7 @@ The request parameter of the endpoint is described below:
 | **userId**  | String | Yes | Enter the ID associated with the user.|
 
 
-Provide updated user details through request body. The following fields are eligible for updates:
+Provide updated user details through the request body. The following fields are eligible for updates:
 
 | Fields | Data Type | Required | Description | 
 |----------------|----------------|----------------|----------------|
@@ -206,7 +206,7 @@ The request parameter of the endpoint is described below:
 
 | Parameter | Data Type | Required | Description | 
 |----------------|----------------|----------------|----------------|
-|**userId**  | String | Yes | Enter the ID associated with user object to be deleted.|
+|**userId**  | String | Yes | Enter the ID associated with the user object to be deleted.|
 
 #### Response
 ---
@@ -224,14 +224,14 @@ Sample response body after an unsuccessful execution.
 ## 2. Payment API
 ------
 
-Payment APIs enables you to initiate and manage payments made through the UPI. The payments are initiated on the UPI apps by a user to be made to a Virtual Payment Address.
+Payment APIs enable you to initiate and manage payments made through the UPI. The payments are initiated on the UPI apps by a user to be made to a Virtual Payment Address.
 
 This method is used to initiate a payment from a user to a Virtual Payment Address(VPA).
 
 ### Initiate a payment  
 ------
 
-Initiates a UPI payment of a given amount from a user to virtual payment address of another user as defined in the request body. Optionally, a note containing purpose of the transaction is attached with the payment. The endpoint attaches a system generated unique ID to the transaction.
+Initiates a UPI payment of a given amount from a user to the VPA of another user as defined in the request body. Optionally, a note containing the purpose of the transaction is attached to the payment. The endpoint attaches a system-generated unique ID to the transaction.
 
 Method: `POST`  
 Endpoint: `/payments`
@@ -239,7 +239,7 @@ Endpoint: `/payments`
 #### Request
 ---
 
-Provide the following details through request body to initiate a payment.
+Provide the following details through the request body to initiate a payment.
 
 | Fields | Data Type | Required | Description | 
 |----------------|----------------|----------------|----------------|
@@ -279,5 +279,5 @@ The following table describes the response codes returned after execution of the
 
 | Code series| Description | 
 |----------------|----------------|
-| 200s  | The endpoint return code in series of 200 upon successful execution. For example, when an object is successfully created, updated, or deleted. |
-| 400s |The endpoint return code in series of 400 upon failure of execution. For example, the execution fails due to authorization issues or incorrect values in parameters.|
+| 200s  | The endpoint returns code in a series of 200 upon successful execution. For example, when an object is successfully created, updated, or deleted. |
+| 400s |The endpoint returns code in a series of 400 upon execution failure. For example, the execution fails due to authorization issues or incorrect values in the parameters.|
