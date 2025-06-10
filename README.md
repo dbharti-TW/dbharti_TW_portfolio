@@ -2,7 +2,7 @@
 
 ## About Me
 
-Hello and welcome to my WIP Technical Writing Portfolio! My name is Drashti, and I am a Technical Writer. I am passionate about software and API documentation. I have a knack for comprehending technical and functional information and translating them into presentable documentation.
+Hello and welcome to my WIP Technical Writing Portfolio! My name is Drashti, and I am a Technical Writer. I am passionate about software and API documentation. I have a knack for comprehending technical and functional information and converting it into presentable documentation.
 
 ## Overview
 
